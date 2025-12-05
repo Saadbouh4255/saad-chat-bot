@@ -1,0 +1,130 @@
+/* App.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0fdf4;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* Active le mode Droite-à-Gauche pour l'interface arabe */
+  direction: rtl; 
+}
+
+/* En-tête */
+header {
+  background-color: #1e00a3; /* Bleu profond */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+/* Zone de chat */
+.chat-window {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+  /* Le motif de fond vert clair avec des croix */
+  background-color: #f0fdf4;
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Bulles de message */
+.message {
+  max-width: 70%;
+  padding: 15px 20px;
+  border-radius: 15px;
+  line-height: 1.5;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease;
+  word-wrap: break-word;
+}
+
+/* Message Utilisateur (Bleu) */
+.user-message {
+  background-color: #1e00a3;
+  color: white;
+  /* Dans un contexte RTL : flex-end met l'élément à GAUCHE */
+  align-self: flex-end; 
+  border-bottom-right-radius: 2px;
+  /* Force le texte utilisateur en LTR si c'est de l'anglais, pour que ce soit joli */
+  direction: ltr; 
+  text-align: left;
+}
+
+/* Message Bot (Blanc) */
+.bot-message {
+  background-color: white;
+  color: #333;
+  /* Dans un contexte RTL : flex-start met l'élément à DROITE */
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  border: 1px solid #e5e7eb;
+  text-align: right;
+}
+
+/* Zone de saisie en bas */
+.input-area {
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #1e00a3;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #3100eb;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
